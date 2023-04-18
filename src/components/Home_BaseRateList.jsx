@@ -14,22 +14,10 @@ const ExchangeItem = (props) => {
 };
 
 export default function Home_BaseRateList(props) {
-  const apiKey = "d4fbf5790d-2814ab969c-rtb5pp";
-  const { baseRateList, setBaseRateList, baseCurrency, setBaseCurrency } =
-    props;
+  const { baseRateList, setBaseRateList, baseCurrency } = props;
   const fetchBaseRateList = async () => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "ee7e6f64e6msh26819eaf8465f31p1543cajsn8a72a2d6df55",
-        "X-RapidAPI-Host": "exchangerate-api.p.rapidapi.com",
-      },
-    };
-
-    fetch(
-      `https://exchangerate-api.p.rapidapi.com/rapid/latest/${baseCurrency}`,
-      options
-    )
+    const host = "api.frankfurter.app";
+    fetch(`https://${host}/latest`)
       .then((response) => response.json())
       .then((response) => setBaseRateList(response.rates))
       .catch((err) => console.error(err));
