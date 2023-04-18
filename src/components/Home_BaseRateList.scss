@@ -1,0 +1,24 @@
+.home_baseRateList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  overflow: scroll;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rates-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+}

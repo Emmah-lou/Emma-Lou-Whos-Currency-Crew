@@ -1,16 +1,40 @@
+import React from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import About from "./components/About";
+import Converter from "./components/Converter";
+import Chart from "./components/Chart";
 import "./App.scss";
 
-function App() {
-  const [count, setCount] = useState(0);
+const NotFound = () => {
+  return (
+    <div>
+      <h1>404 Not Found</h1>
+    </div>
+  );
+};
 
+function App() {
+  const [baseCurrency, setBaseCurrency] = React.useState("AUD");
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route
+        path="/"
+        element={
+          <Home baseCurrency={baseCurrency} setBaseCurrency={setBaseCurrency} />
+        }
+      />
+      <Route
+        path={"/converter/:id"}
+        element={
+          <Converter
+            baseCurrency={baseCurrency}
+            setBaseCurrency={setBaseCurrency}
+          />
+        }
+      />
+      <Route path="/converter/chart" element={<Chart />} />
+      <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );
 }
