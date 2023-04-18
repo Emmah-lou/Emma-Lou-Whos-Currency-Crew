@@ -15,7 +15,7 @@ const NotFound = () => {
 };
 
 function App() {
-  const [baseCurrency, setBaseCurrency] = React.useState("USD");
+  const [baseCurrency, setBaseCurrency] = React.useState("AUD");
   return (
     <Routes>
       <Route

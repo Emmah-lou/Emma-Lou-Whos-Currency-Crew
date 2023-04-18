@@ -15,7 +15,7 @@ export default function Converter(props) {
   const { baseCurrency, setBaseCurrency } = props;
   const [rate, setRate] = useState(0);
   const [convertTo, setConvertTo] = useState(id);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(0);
 
   const handleAmountChange = (event) => {
@@ -25,37 +25,32 @@ export default function Converter(props) {
   };
   useEffect(() => {
     conversion(id, convertTo);
-  }, [convertTo]);
+  }, [convertTo, amount]);
   const conversion = () => {
-    console.log(baseCurrency, convertTo);
-    const stockApiKey = "OMZGXK5NKES2KJV5";
-    const webUrl = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${baseCurrency}&to_currency=${convertTo}&apikey=${stockApiKey}`;
-    fetch(webUrl)
-      .then((response) => response.json())
+    const host = "api.frankfurter.app";
+    fetch(
+      `https://${host}/latest?amount=${amount}&from=${baseCurrency}&to=${convertTo}`
+    )
+      .then((resp) => resp.json())
       .then((data) => {
-        let rate = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"];
-        setRate(rate);
+        let amount = data.rates[convertTo];
+        setRate(amount);
         console.log(data);
-        //console.log(data.rates[convertTo]);
       });
   };
 
-  const doTheMath = () => {
-    let result = amount * rate;
-    setResult(result);
-  };
   const doTheSwap = (event) => {
     event.preventDefault();
     setBaseCurrency(convertTo);
     setConvertTo(baseCurrency);
-    doTheMath();
   };
   return (
     <div className="converter">
+      <Header />
       <NavBar />
       <h1>
         <button onClick={doTheSwap}>swap</button>
-        {baseCurrency} to {convertTo} is {rate}
+        {baseCurrency} to {convertTo}
       </h1>
 
       <form>
@@ -66,9 +61,8 @@ export default function Converter(props) {
           type="number"
           value={amount}
         />
-        <button onClick={doTheMath}>Convert</button>
       </form>
-      <h1>{result}</h1>
+      <h1>{rate}</h1>
 
       <Link to="/converter/chart/:id">chart</Link>
       <Footer />
