@@ -1,4 +1,5 @@
 import "./Footer.scss";
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
@@ -14,7 +15,6 @@ export default function Footer() {
     <div className="footer">
       <hr />
       <p>© 2021 Emma-Lou-Who's Currency Crew</p>
-      <i></i>
     </div>
   );
 }

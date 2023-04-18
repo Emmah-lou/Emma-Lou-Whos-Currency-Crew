@@ -16,7 +16,7 @@ import "./Converter.scss";
 
 export default function Home() {
   const [baseCurrency, setBaseCurrency] = React.useState("USD");
-  const [baseRate, setBaseRate] = React.useState(1);
+
   const [baseRateList, setBaseRateList] = React.useState([]);
 
   const handleBaseRateChange = (event) => {
@@ -33,18 +33,15 @@ export default function Home() {
       <Home_BaseRate
         baseCurrency={baseCurrency}
         setBaseCurrency={setBaseCurrency}
-        baseRate={baseRate}
-        setBaseRate={setBaseRate}
         handleBaseRateChange={handleBaseRateChange}
       />
       <Home_BaseRateList
         baseCurrency={baseCurrency}
         setBaseCurrency={setBaseCurrency}
-        baseRate={baseRate}
-        setBaseRate={setBaseRate}
         baseRateList={baseRateList}
         setBaseRateList={setBaseRateList}
       />
+      <Footer />
     </div>
   );
 }

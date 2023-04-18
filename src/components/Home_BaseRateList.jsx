@@ -7,7 +7,8 @@ const ExchangeItem = (props) => {
   const { currency, rate } = props;
   return (
     <li>
-      Currency -{currency} Rate - {rate}
+      <Link to={`/converter/${currency}`}>{currency}</Link>
+      {rate}
     </li>
   );
 };

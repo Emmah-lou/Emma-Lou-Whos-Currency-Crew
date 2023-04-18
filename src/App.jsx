@@ -17,8 +17,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/converter" element={<Converter />} />
-      <Route path="/converter/chart/:id" element={<Chart />} />
+      <Route path="/converter/:id" element={<Converter />} />
+      <Route path="/converter/chart" element={<Chart />} />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );

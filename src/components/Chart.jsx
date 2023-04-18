@@ -16,6 +16,7 @@ export default function Chart() {
     <div className="chart">
       <NavBar />
       <h1>Chart</h1>
+      <Footer />
     </div>
   );
 }
