@@ -2,15 +2,24 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Converter from "./components/Converter";
+import Chart from "./components/Chart";
 import "./App.scss";
 
-function App() {
-  const [count, setCount] = useState(0);
+const NotFound = () => {
+  return (
+    <div>
+      <h1>404 Not Found</h1>
+    </div>
+  );
+};
 
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<Converter />} />
+      <Route path="/converter" element={<Converter />} />
+      <Route path="/converter/chart/:id" element={<Chart />} />
+      <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );
 }

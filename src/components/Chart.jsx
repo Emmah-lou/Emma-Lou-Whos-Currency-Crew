@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Converter from "./Converter";
 import NavBar from "./NavBar";
 import "./NavBar.scss";
 import "./Home.scss";
 import "./Header.scss";
 import "./Footer.scss";
+import "./Converter.scss";
 
-export default function Converter() {
+export default function Chart() {
   return (
-    <div className="converter">
+    <div className="chart">
       <NavBar />
-      <h1>converter</h1>
-      <Link to="/converter/chart">chart</Link>
+      <h1>Chart</h1>
     </div>
   );
 }

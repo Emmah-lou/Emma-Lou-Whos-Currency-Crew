@@ -1,19 +1,20 @@
+import "./Footer.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
+import Converter from "./Converter";
 import NavBar from "./NavBar";
 import "./NavBar.scss";
 import "./Home.scss";
 import "./Header.scss";
-import "./Footer.scss";
+import "./Converter.scss";
 
-export default function Converter() {
+export default function Footer() {
   return (
-    <div className="converter">
-      <NavBar />
-      <h1>converter</h1>
-      <Link to="/converter/chart">chart</Link>
+    <div className="footer">
+      <hr />
+      <p>© 2021 Emma-Lou-Who's Currency Crew</p>
+      <i></i>
     </div>
   );
 }
