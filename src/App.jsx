@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
@@ -14,10 +15,24 @@ const NotFound = () => {
 };
 
 function App() {
+  const [baseCurrency, setBaseCurrency] = React.useState("USD");
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/converter/:id" element={<Converter />} />
+      <Route
+        path="/"
+        element={
+          <Home baseCurrency={baseCurrency} setBaseCurrency={setBaseCurrency} />
+        }
+      />
+      <Route
+        path={"/converter/:id"}
+        element={
+          <Converter
+            baseCurrency={baseCurrency}
+            setBaseCurrency={setBaseCurrency}
+          />
+        }
+      />
       <Route path="/converter/chart" element={<Chart />} />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>

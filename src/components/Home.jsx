@@ -14,8 +14,8 @@ import "./Header.scss";
 import "./Footer.scss";
 import "./Converter.scss";
 
-export default function Home() {
-  const [baseCurrency, setBaseCurrency] = React.useState("USD");
+export default function Home(props) {
+  const { baseCurrency, setBaseCurrency } = props;
 
   const [baseRateList, setBaseRateList] = React.useState([]);
 

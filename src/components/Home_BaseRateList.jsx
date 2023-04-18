@@ -43,7 +43,6 @@ export default function Home_BaseRateList(props) {
   console.log(baseRateListArray);
   return (
     <div className="home_baseRateList">
-      <h1>Home_BaseRateList</h1>
       <ul className="rates-list">
         {baseRateListArray.map((item) => {
           return <ExchangeItem currency={item[0]} rate={item[1]} />;
