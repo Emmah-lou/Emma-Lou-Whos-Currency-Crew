@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import About from "./components/About";
+import Converter from "./components/Converter";
 import "./App.scss";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/about" element={<Converter />} />
     </Routes>
   );
 }
