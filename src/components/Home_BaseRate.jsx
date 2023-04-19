@@ -6,7 +6,7 @@ export default function Home_BaseRate(props) {
     baseRate,
     setBaseRate,
   } = props;
-  console.log(baseCurrency);
+
   return (
     <div className="home__baseRate">
       <form onChange={handleBaseRateChange} id="home-base-rate">

@@ -33,7 +33,13 @@ export default function Home_BaseRateList(props) {
     <div className="home_baseRateList">
       <ul className="rates-list">
         {baseRateListArray.map((item) => {
-          return <ExchangeItem currency={item[0]} rate={item[1]} />;
+          return (
+            <ExchangeItem
+              base={baseCurrency}
+              currency={item[0]}
+              rate={item[1]}
+            />
+          );
         })}
       </ul>
     </div>

@@ -38,7 +38,9 @@ export default function Converter(props) {
         console.log(data);
       });
   };
-
+  const handleKeyUp = (event) => {
+    event.preventDefault();
+  };
   const doTheSwap = (event) => {
     event.preventDefault();
     setBaseCurrency(convertTo);
@@ -57,6 +59,7 @@ export default function Converter(props) {
         <label htmlFor="amount">Enter Amount</label>
         <input
           onChange={handleAmountChange}
+          onKeyUp={handleKeyUp}
           name="amount"
           type="number"
           value={amount}

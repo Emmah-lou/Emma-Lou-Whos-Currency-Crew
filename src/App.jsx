@@ -33,7 +33,7 @@ function App() {
           />
         }
       />
-      <Route path="/converter/chart" element={<Chart />} />
+      <Route path="/converter/chart/:id" element={<Chart />} />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );
