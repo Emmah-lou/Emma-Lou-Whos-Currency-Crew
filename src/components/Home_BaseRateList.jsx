@@ -17,7 +17,7 @@ export default function Home_BaseRateList(props) {
   const { baseRateList, setBaseRateList, baseCurrency } = props;
   const fetchBaseRateList = async () => {
     const host = "api.frankfurter.app";
-    fetch(`https://${host}/latest`)
+    fetch(`https://${host}/latest?from=${baseCurrency}`)
       .then((response) => response.json())
       .then((response) => setBaseRateList(response.rates))
       .catch((err) => console.error(err));
