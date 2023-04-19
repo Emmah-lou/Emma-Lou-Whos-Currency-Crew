@@ -13,6 +13,8 @@ import "./Home.scss";
 import "./Header.scss";
 import "./Footer.scss";
 import "./Converter.scss";
+import "./Home_BaseRate.scss";
+import "./Home_BaseRateList.scss";
 
 export default function Home(props) {
   const { baseCurrency, setBaseCurrency } = props;

@@ -1,24 +1,31 @@
 .home_baseRateList {
+  overflow: hidden;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 70vh;
-  overflow: scroll;
-  ul {
+  justify-content: space-evenly;
+  //background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+
+  .rates-list {
+    width: 175px;
     list-style: none;
     padding: 0;
-    margin: 0;
-  }
-  .rates-list {
-    height: 100%;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    max-height: 450px;
+    overflow-y: scroll;
+    margin-bottom: 1rem;
     li {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      //padding-bottom: 0.2rem;
       flex-direction: row;
+      margin: 0.1rem;
+      a {
+        padding-right: 1rem;
+      }
     }
   }
 }

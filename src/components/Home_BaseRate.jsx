@@ -1,3 +1,4 @@
+import "./Home_BaseRate.scss";
 export default function Home_BaseRate(props) {
   const {
     handleBaseRateChange,
