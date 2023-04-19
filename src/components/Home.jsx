@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Converter from "./Converter";
 import NavBar from "./NavBar";
-import Chart from "./Chart";
+import Charts from "./Charts";
 import Home_BaseRate from "./Home_BaseRate";
 import Home_BaseRateList from "./Home_BaseRateList";
 import "./Chart.scss";
