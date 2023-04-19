@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Converter from "./components/Converter";
-import Chart from "./components/Chart";
+import Charts from "./components/Charts";
 import "./App.scss";
 
 const NotFound = () => {
@@ -15,7 +15,8 @@ const NotFound = () => {
 };
 
 function App() {
-  const [baseCurrency, setBaseCurrency] = React.useState("AUD");
+  const [baseCurrency, setBaseCurrency] = useState("AUD");
+  const [convertTo, setConvertTo] = useState("USD");
   return (
     <Routes>
       <Route
@@ -28,12 +29,17 @@ function App() {
         path={"/converter/:id"}
         element={
           <Converter
+            convertTo={convertTo}
+            setConvertTo={setConvertTo}
             baseCurrency={baseCurrency}
             setBaseCurrency={setBaseCurrency}
           />
         }
       />
-      <Route path="/converter/chart" element={<Chart />} />
+      <Route
+        path="/converter/chart/:id"
+        element={<Charts convertTo={convertTo} baseCurrency={baseCurrency} />}
+      />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );

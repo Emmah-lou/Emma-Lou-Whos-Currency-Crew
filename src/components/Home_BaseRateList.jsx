@@ -6,7 +6,7 @@ import "./Home_BaseRateList.scss";
 const ExchangeItem = (props) => {
   const { currency, rate } = props;
   return (
-    <li>
+    <li key={`${currency}`}>
       <Link to={`/converter/${currency}`}>{currency}</Link>
       {rate}
     </li>
@@ -17,7 +17,7 @@ export default function Home_BaseRateList(props) {
   const { baseRateList, setBaseRateList, baseCurrency } = props;
   const fetchBaseRateList = async () => {
     const host = "api.frankfurter.app";
-    fetch(`https://${host}/latest`)
+    fetch(`https://${host}/latest?from=${baseCurrency}`)
       .then((response) => response.json())
       .then((response) => setBaseRateList(response.rates))
       .catch((err) => console.error(err));
@@ -26,14 +26,20 @@ export default function Home_BaseRateList(props) {
   useEffect(() => {
     fetchBaseRateList();
   }, [baseCurrency]);
-  console.log(baseRateList);
+
   const baseRateListArray = Object.entries(baseRateList);
-  console.log(baseRateListArray);
+  // console.log(baseRateListArray);
   return (
     <div className="home_baseRateList">
       <ul className="rates-list">
         {baseRateListArray.map((item) => {
-          return <ExchangeItem currency={item[0]} rate={item[1]} />;
+          return (
+            <ExchangeItem
+              base={baseCurrency}
+              currency={item[0]}
+              rate={item[1]}
+            />
+          );
         })}
       </ul>
     </div>
