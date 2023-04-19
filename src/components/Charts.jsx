@@ -59,11 +59,11 @@ export default function Charts(props) {
   );
 }
 const MyChart = ({ data }) => (
-  <LineChart width={600} height={300} data={data}>
+  <LineChart width={400} height={200} data={data}>
     <XAxis dataKey="date" />
     <YAxis />
-    <CartesianGrid strokeDasharray="3 3" />
+    <CartesianGrid strokeDasharray="7 7" />
     <Tooltip />
-    <Line type="monotone" dataKey="rate" stroke="#8884d8" />
+    <Line type="monotone" dataKey="rate" stroke="green" />
   </LineChart>
 );
