@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Converter from "./components/Converter";
-import Chart from "./components/Chart";
+import Charts from "./components/Charts";
 import "./App.scss";
 
 const NotFound = () => {
@@ -38,7 +38,7 @@ function App() {
       />
       <Route
         path="/converter/chart/:id"
-        element={<Chart convertTo={convertTo} baseCurrency={baseCurrency} />}
+        element={<Charts convertTo={convertTo} baseCurrency={baseCurrency} />}
       />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>

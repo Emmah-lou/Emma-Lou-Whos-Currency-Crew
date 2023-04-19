@@ -6,7 +6,7 @@ import "./Home_BaseRateList.scss";
 const ExchangeItem = (props) => {
   const { currency, rate } = props;
   return (
-    <li>
+    <li key={`${currency}`}>
       <Link to={`/converter/${currency}`}>{currency}</Link>
       {rate}
     </li>
@@ -26,9 +26,9 @@ export default function Home_BaseRateList(props) {
   useEffect(() => {
     fetchBaseRateList();
   }, [baseCurrency]);
-  console.log(baseRateList);
+
   const baseRateListArray = Object.entries(baseRateList);
-  console.log(baseRateListArray);
+  // console.log(baseRateListArray);
   return (
     <div className="home_baseRateList">
       <ul className="rates-list">
