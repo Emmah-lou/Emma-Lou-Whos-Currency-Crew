@@ -17,7 +17,8 @@ export default function Converter(props) {
   //const [convertTo, setConvertTo] = useState(id);
   const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(0);
-
+  setConvertTo(id);
+  console.log(convertTo, baseCurrency, id);
   const handleAmountChange = (event) => {
     event.preventDefault();
     let amount = event.target.value;
@@ -25,6 +26,7 @@ export default function Converter(props) {
   };
   useEffect(() => {
     conversion(id, convertTo);
+    console.log(baseCurrency, convertTo, id);
   }, [convertTo, amount]);
   const conversion = () => {
     const host = "api.frankfurter.app";

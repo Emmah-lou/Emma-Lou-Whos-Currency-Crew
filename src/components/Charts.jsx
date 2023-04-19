@@ -20,6 +20,8 @@ import {
 
 export default function Charts(props) {
   const { convertTo, baseCurrency } = props;
+  console.log(baseCurrency, convertTo);
+
   const [chartData, setChartData] = React.useState([]);
   const getChartData = () => {
     const stockApiKey = "OMZGXK5NKES2KJV5";
