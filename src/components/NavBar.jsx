@@ -15,9 +15,6 @@ export default function NavBar() {
         <li>
           <Link to="/">Back</Link>
         </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
       </ul>
     </div>
   );

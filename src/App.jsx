@@ -15,7 +15,8 @@ const NotFound = () => {
 };
 
 function App() {
-  const [baseCurrency, setBaseCurrency] = React.useState("AUD");
+  const [baseCurrency, setBaseCurrency] = useState("AUD");
+  const [convertTo, setConvertTo] = useState("USD");
   return (
     <Routes>
       <Route
@@ -28,12 +29,17 @@ function App() {
         path={"/converter/:id"}
         element={
           <Converter
+            convertTo={convertTo}
+            setConvertTo={setConvertTo}
             baseCurrency={baseCurrency}
             setBaseCurrency={setBaseCurrency}
           />
         }
       />
-      <Route path="/converter/chart/:id" element={<Chart />} />
+      <Route
+        path="/converter/chart/:id"
+        element={<Chart convertTo={convertTo} baseCurrency={baseCurrency} />}
+      />
       <Route path="/NotFound" element={<NotFound />} />
     </Routes>
   );

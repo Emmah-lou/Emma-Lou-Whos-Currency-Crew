@@ -1,4 +1,4 @@
-export default createMonthTimeSpan = () => {
+export default createMonth = () => {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();

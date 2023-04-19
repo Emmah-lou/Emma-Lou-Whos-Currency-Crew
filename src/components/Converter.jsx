@@ -12,9 +12,9 @@ import "./Footer.scss";
 
 export default function Converter(props) {
   const { id } = useParams();
-  const { baseCurrency, setBaseCurrency } = props;
+  const { baseCurrency, setBaseCurrency, convertTo, setConvertTo } = props;
   const [rate, setRate] = useState(0);
-  const [convertTo, setConvertTo] = useState(id);
+  //const [convertTo, setConvertTo] = useState(id);
   const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(0);
 
@@ -67,7 +67,7 @@ export default function Converter(props) {
       </form>
       <h1>{rate}</h1>
 
-      <Link to="/converter/chart/:id">chart</Link>
+      <Link to={`/converter/chart/${convertTo}`}>chart</Link>
       <Footer />
     </div>
   );
