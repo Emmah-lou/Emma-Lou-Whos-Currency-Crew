@@ -44,7 +44,13 @@ export default function Charts(props) {
   }, [convertTo, baseCurrency]);
   //turn this into a chart
   console.log(chartData);
-  const chartMap = chartData.map((data) => ({ date: data.x, rate: data.y }));
+
+  //const chartMap = chartData.map((data) => ({ date: data.x, rate: data.y }));
+
+  //make the chart map only have 30 points
+  const chartMap = chartData
+    .map((data) => ({ date: data.x, rate: data.y }))
+    .slice(0, 30);
 
   return (
     <div className="chart">
