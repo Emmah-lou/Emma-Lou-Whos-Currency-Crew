@@ -26,7 +26,7 @@ export default function Converter(props) {
   };
   useEffect(() => {
     conversion(id, convertTo);
-    console.log(baseCurrency, convertTo, id);
+    //console.log(baseCurrency, convertTo, id);
   }, [convertTo, amount]);
   const conversion = () => {
     const host = "api.frankfurter.app";
