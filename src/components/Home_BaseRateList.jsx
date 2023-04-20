@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import "./Home_BaseRateList.scss";
 
 const ExchangeItem = (props) => {
-  const { currency, rate } = props;
+  const { baseCurrency, currency, rate } = props;
   return (
     <li key={`${currency}`}>
-      <Link to={`/converter/${currency}`}>{currency}</Link>
-      {rate}
+      <Link to={`/converter/${currency}`}>
+        {baseCurrency} - {currency}
+      </Link>
+      <span>{rate}</span>
     </li>
   );
 };
@@ -35,7 +37,8 @@ export default function Home_BaseRateList(props) {
         {baseRateListArray.map((item) => {
           return (
             <ExchangeItem
-              base={baseCurrency}
+              key={item[0]}
+              baseCurrency={baseCurrency}
               currency={item[0]}
               rate={item[1]}
             />

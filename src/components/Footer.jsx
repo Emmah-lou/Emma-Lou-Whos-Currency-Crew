@@ -4,8 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Converter from "./Converter";
-import NavBar from "./NavBar";
-import "./NavBar.scss";
+
 import "./Home.scss";
 import "./Header.scss";
 import "./Converter.scss";

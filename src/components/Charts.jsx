@@ -2,13 +2,8 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Chart from "chart.js/auto";
-
-import NavBar from "./NavBar";
-import "./NavBar.scss";
-import "./Home.scss";
-import "./Header.scss";
-import "./Footer.scss";
-import "./Converter.scss";
+import "./Charts.scss";
+import { Link } from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -20,6 +15,8 @@ import {
 
 export default function Charts(props) {
   const { convertTo, baseCurrency } = props;
+  console.log(baseCurrency, convertTo);
+
   const [chartData, setChartData] = React.useState([]);
   const getChartData = () => {
     const stockApiKey = "OMZGXK5NKES2KJV5";
@@ -44,16 +41,27 @@ export default function Charts(props) {
   }, [convertTo, baseCurrency]);
   //turn this into a chart
   console.log(chartData);
-  const chartMap = chartData.map((data) => ({ date: data.x, rate: data.y }));
+
+  //const chartMap = chartData.map((data) => ({ date: data.x, rate: data.y }));
+
+  //make the chart map only have 30 points
+  const chartMap = chartData
+    .map((data) => ({ date: data.x, rate: data.y }))
+    .slice(0, 30);
 
   return (
     <div className="chart">
       <Header />
-      <NavBar />
-      <h1>
-        {baseCurrency} - {convertTo} Chart Data
-      </h1>
-      <MyChart data={chartMap} />
+      <div id="chart-container">
+        <h3>
+          Chart Data for - {baseCurrency}|{convertTo}
+        </h3>
+        <MyChart data={chartMap} />
+        <p>**Data represents a 30 day period from todays date.**</p>
+        <Link to={`/converter/${convertTo}`}>
+          <button>Back to Converter</button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

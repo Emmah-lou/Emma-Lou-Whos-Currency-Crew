@@ -1,0 +1,17 @@
+.header {
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  text-align: center;
+  button {
+    font-size: medium;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+  }
+}

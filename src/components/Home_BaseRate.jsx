@@ -1,17 +1,12 @@
+import "./Home_BaseRate.scss";
 export default function Home_BaseRate(props) {
-  const {
-    handleBaseRateChange,
-    baseCurrency,
-    setBaseCurrency,
-    baseRate,
-    setBaseRate,
-  } = props;
+  const { handleBaseRateChange } = props;
 
   return (
-    <div className="home__baseRate">
-      <form onChange={handleBaseRateChange} id="home-base-rate">
-        <label htmlFor="baseCurrency">Base Rate</label>
-        <select name="baseCurrency" id="baseCurrency">
+    <div id="base-rate">
+      <form onChange={handleBaseRateChange}>
+        <label htmlFor="baseCurrency">Base Rate - </label>
+        <select name="baseCurrency">
           <option value="AUD">AUD</option>
           <option value="BGN">BGN</option>
           <option value="BRL">BRL</option>
