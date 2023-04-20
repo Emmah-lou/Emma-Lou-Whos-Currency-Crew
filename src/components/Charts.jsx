@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Chart from "chart.js/auto";
-
-import "./Home.scss";
-import "./Header.scss";
-import "./Footer.scss";
-import "./Converter.scss";
+import "./Charts.scss";
+import { Link } from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -55,11 +52,16 @@ export default function Charts(props) {
   return (
     <div className="chart">
       <Header />
-      <NavBar />
-      <h1>
-        {baseCurrency} - {convertTo} Chart Data
-      </h1>
-      <MyChart data={chartMap} />
+      <div id="chart-container">
+        <h3>
+          Chart Data for - {baseCurrency}|{convertTo}
+        </h3>
+        <MyChart data={chartMap} />
+        <p>**Data represents a 30 day period from todays date.**</p>
+        <Link to={`/converter/${convertTo}`}>
+          <button>Back to Converter</button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

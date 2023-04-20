@@ -12,21 +12,21 @@ import "./Footer.scss";
 
 export default function Converter(props) {
   const { id } = useParams();
+  //setConvertTo(id);
   const { baseCurrency, setBaseCurrency, convertTo, setConvertTo } = props;
   const [rate, setRate] = useState(0);
-  //const [convertTo, setConvertTo] = useState(id);
   const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(0);
-  setConvertTo(id);
-  console.log(convertTo, baseCurrency, id);
+
   const handleAmountChange = (event) => {
     event.preventDefault();
     let amount = event.target.value;
     setAmount(amount);
   };
   useEffect(() => {
-    conversion(id, convertTo);
-    console.log(baseCurrency, convertTo, id);
+    //setConvertTo(id);
+    conversion();
+    //console.log(baseCurrency, convertTo, id);
   }, [convertTo, amount]);
   const conversion = () => {
     const host = "api.frankfurter.app";
@@ -40,9 +40,7 @@ export default function Converter(props) {
         console.log(data);
       });
   };
-  const handleKeyUp = (event) => {
-    event.preventDefault();
-  };
+
   const doTheSwap = (event) => {
     event.preventDefault();
     setBaseCurrency(convertTo);
@@ -51,25 +49,24 @@ export default function Converter(props) {
   return (
     <div className="converter">
       <Header />
+      <div id="converter-container">
+        <h1>
+          {baseCurrency} to {convertTo}
+        </h1>
+        <form>
+          <button onClick={doTheSwap}>swap</button>
+          <label htmlFor="amount">Enter Amount </label>
+          <input
+            onChange={handleAmountChange}
+            name="amount"
+            type="number"
+            value={amount}
+          />
+        </form>
+        <h1>{rate}</h1>
 
-      <h1>
-        <button onClick={doTheSwap}>swap</button>
-        {baseCurrency} to {convertTo}
-      </h1>
-
-      <form>
-        <label htmlFor="amount">Enter Amount</label>
-        <input
-          onChange={handleAmountChange}
-          onKeyUp={handleKeyUp}
-          name="amount"
-          type="number"
-          value={amount}
-        />
-      </form>
-      <h1>{rate}</h1>
-
-      <Link to={`/converter/chart/${convertTo}`}>chart</Link>
+        <Link to={`/converter/chart/${convertTo}`}>View 30-Day Chart</Link>
+      </div>
       <Footer />
     </div>
   );
