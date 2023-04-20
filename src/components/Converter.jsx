@@ -12,20 +12,20 @@ import "./Footer.scss";
 
 export default function Converter(props) {
   const { id } = useParams();
+  //setConvertTo(id);
   const { baseCurrency, setBaseCurrency, convertTo, setConvertTo } = props;
   const [rate, setRate] = useState(0);
-  //const [convertTo, setConvertTo] = useState(id);
   const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(0);
-  setConvertTo(id);
-  console.log(convertTo, baseCurrency, id);
+
   const handleAmountChange = (event) => {
     event.preventDefault();
     let amount = event.target.value;
     setAmount(amount);
   };
   useEffect(() => {
-    conversion(id, convertTo);
+    //setConvertTo(id);
+    conversion();
     //console.log(baseCurrency, convertTo, id);
   }, [convertTo, amount]);
   const conversion = () => {
