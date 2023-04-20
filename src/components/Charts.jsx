@@ -69,7 +69,7 @@ export default function Charts(props) {
 const MyChart = ({ data }) => (
   <LineChart width={400} height={200} data={data}>
     <XAxis dataKey="date" />
-    <YAxis />
+    <YAxis domain={["dataMin - 1", "dataMax + 1"]} />
     <CartesianGrid strokeDasharray="7 7" />
     <Tooltip />
     <Line type="monotone" dataKey="rate" stroke="green" />
