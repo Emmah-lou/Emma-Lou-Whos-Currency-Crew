@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./NavBar.scss";
+
 import "./Home.scss";
 import "./Header.scss";
 import "./Footer.scss";
@@ -51,7 +51,7 @@ export default function Converter(props) {
   return (
     <div className="converter">
       <Header />
-      <NavBar />
+
       <h1>
         <button onClick={doTheSwap}>swap</button>
         {baseCurrency} to {convertTo}

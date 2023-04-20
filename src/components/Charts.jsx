@@ -3,8 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Chart from "chart.js/auto";
 
-import NavBar from "./NavBar";
-import "./NavBar.scss";
 import "./Home.scss";
 import "./Header.scss";
 import "./Footer.scss";
