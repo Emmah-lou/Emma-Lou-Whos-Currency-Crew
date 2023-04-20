@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Chart from "chart.js/auto";
-
-import "./Home.scss";
-import "./Header.scss";
-import "./Footer.scss";
-import "./Converter.scss";
+import "./Charts.scss";
 import {
   LineChart,
   Line,
@@ -55,11 +51,12 @@ export default function Charts(props) {
   return (
     <div className="chart">
       <Header />
-      <NavBar />
-      <h1>
-        {baseCurrency} - {convertTo} Chart Data
-      </h1>
-      <MyChart data={chartMap} />
+      <div id="chart-container">
+        <h2>
+          {baseCurrency} - {convertTo} Chart Data
+        </h2>
+        <MyChart data={chartMap} />
+      </div>
       <Footer />
     </div>
   );

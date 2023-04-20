@@ -40,9 +40,7 @@ export default function Converter(props) {
         console.log(data);
       });
   };
-  const handleKeyUp = (event) => {
-    event.preventDefault();
-  };
+
   const doTheSwap = (event) => {
     event.preventDefault();
     setBaseCurrency(convertTo);
@@ -51,25 +49,24 @@ export default function Converter(props) {
   return (
     <div className="converter">
       <Header />
+      <div id="converter-container">
+        <h1>
+          {baseCurrency} to {convertTo}
+        </h1>
+        <form>
+          <button onClick={doTheSwap}>swap</button>
+          <label htmlFor="amount">Enter Amount </label>
+          <input
+            onChange={handleAmountChange}
+            name="amount"
+            type="number"
+            value={amount}
+          />
+        </form>
+        <h1>{rate}</h1>
 
-      <h1>
-        <button onClick={doTheSwap}>swap</button>
-        {baseCurrency} to {convertTo}
-      </h1>
-
-      <form>
-        <label htmlFor="amount">Enter Amount</label>
-        <input
-          onChange={handleAmountChange}
-          onKeyUp={handleKeyUp}
-          name="amount"
-          type="number"
-          value={amount}
-        />
-      </form>
-      <h1>{rate}</h1>
-
-      <Link to={`/converter/chart/${convertTo}`}>chart</Link>
+        <Link to={`/converter/chart/${convertTo}`}>View 30-Day Chart</Link>
+      </div>
       <Footer />
     </div>
   );

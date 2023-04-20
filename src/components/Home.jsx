@@ -2,15 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-
 import Home_BaseRate from "./Home_BaseRate";
 import Home_BaseRateList from "./Home_BaseRateList";
-
 import "./Home.scss";
-import "./Header.scss";
-import "./Footer.scss";
-import "./Home_BaseRate.scss";
-import "./Home_BaseRateList.scss";
 
 export default function Home(props) {
   const { baseCurrency, setBaseCurrency } = props;
@@ -27,17 +21,19 @@ export default function Home(props) {
   return (
     <div className="home">
       <Header />
-      <Home_BaseRate
-        baseCurrency={baseCurrency}
-        setBaseCurrency={setBaseCurrency}
-        handleBaseRateChange={handleBaseRateChange}
-      />
-      <Home_BaseRateList
-        baseCurrency={baseCurrency}
-        setBaseCurrency={setBaseCurrency}
-        baseRateList={baseRateList}
-        setBaseRateList={setBaseRateList}
-      />
+      <div id="home-container">
+        <Home_BaseRate
+          baseCurrency={baseCurrency}
+          setBaseCurrency={setBaseCurrency}
+          handleBaseRateChange={handleBaseRateChange}
+        />
+        <Home_BaseRateList
+          baseCurrency={baseCurrency}
+          setBaseCurrency={setBaseCurrency}
+          baseRateList={baseRateList}
+          setBaseRateList={setBaseRateList}
+        />
+      </div>
       <Footer />
     </div>
   );
