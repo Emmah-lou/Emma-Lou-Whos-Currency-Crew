@@ -11,23 +11,17 @@ import "./Header.scss";
 import "./Footer.scss";
 
 export default function Converter(props) {
+  const { baseCurrency, convertTo, setConvertTo } = props;
   const { id } = useParams();
-  //setConvertTo(id);
-  const { baseCurrency, setBaseCurrency, convertTo, setConvertTo } = props;
-  const [rate, setRate] = useState(0);
+  setConvertTo(id);
+  const [total, setTotal] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [result, setResult] = useState(0);
 
   const handleAmountChange = (event) => {
     event.preventDefault();
     let amount = event.target.value;
     setAmount(amount);
   };
-  useEffect(() => {
-    //setConvertTo(id);
-    conversion();
-    //console.log(baseCurrency, convertTo, id);
-  }, [convertTo, amount]);
   const conversion = () => {
     const host = "api.frankfurter.app";
     fetch(
@@ -35,17 +29,20 @@ export default function Converter(props) {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        let amount = data.rates[convertTo];
-        setRate(amount);
+        let total = data.rates[convertTo];
+        setTotal(total);
         console.log(data);
       });
   };
 
   const doTheSwap = (event) => {
     event.preventDefault();
-    setBaseCurrency(convertTo);
-    setConvertTo(baseCurrency);
+    //setBaseCurrency(convertTo);
+    //setConvertTo(baseCurrency);
   };
+  useEffect(() => {
+    conversion();
+  }, [amount]);
   return (
     <div className="converter">
       <Header />
@@ -63,7 +60,7 @@ export default function Converter(props) {
             value={amount}
           />
         </form>
-        <h1>{rate}</h1>
+        <h1>{total}</h1>
 
         <Link to={`/converter/chart/${convertTo}`}>View 30-Day Chart</Link>
       </div>
